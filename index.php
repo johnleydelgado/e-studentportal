@@ -171,12 +171,11 @@ footer a, footer a:link {
 
     </style>
 	</head>
-<?php
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
 
   
   </script>
-?>
 
 
 <body>

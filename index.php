@@ -170,6 +170,7 @@ footer a, footer a:link {
 }
 
     </style>
+	</head>
 <?php
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
    FB.init({
@@ -203,7 +204,7 @@ FB.getLoginStatus(function(response) {
   
   </script>
 ?>
-</head>
+
 
 <body>
 <h1 id="fb-welcome"></h1>

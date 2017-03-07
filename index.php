@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html >
 <head>
   <meta charset="UTF-8">
@@ -170,12 +170,43 @@ footer a, footer a:link {
 }
 
     </style>
+<?php
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
+   FB.init({
+    appId      : '{your-app-id}',
+    status     : true,
+    xfbml      : true,
+    version    : 'v2.7' // or v2.6, v2.5, v2.4, v2.3
+  });
+  
+  function onLogin(response) {
+  if (response.status == 'connected') {
+    FB.api('/me?fields=first_name', function(data) {
+      var welcomeBlock = document.getElementById('fb-welcome');
+      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+    });
+  }
+}
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
+FB.getLoginStatus(function(response) {
+  // Check login status on load, and if the user is
+  // already logged in, go directly to the welcome message.
+  if (response.status == 'connected') {
+    onLogin(response);
+  } else {
+    // Otherwise, show Login dialog first.
+    FB.login(function(response) {
+      onLogin(response);
+    }, {scope: 'user_friends, email'});
+  }
+});
+  
+  </script>
+?>
 </head>
 
 <body>
+<h1 id="fb-welcome"></h1>
   <div class="wrapper">
   <form class="login">
     <p class="title">Log in</p>

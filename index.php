@@ -182,7 +182,7 @@ footer a, footer a:link {
     });
 
     // ADD ADDITIONAL FACEBOOK CODE HERE
-  };
+  
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -213,7 +213,7 @@ FB.getLoginStatus(function(response) {
     }, {scope: 'user_friends, email'});
   }
 });
-  
+  };
   </script>
 
 

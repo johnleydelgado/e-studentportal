@@ -173,15 +173,25 @@ footer a, footer a:link {
 	</head>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
- window.fbAsyncInit = function() {
+
+  window.fbAsyncInit = function() {
     FB.init({
       appId      : '1647204945583377',
       xfbml      : true,
       version    : 'v2.8'
     });
-    FB.AppEvents.logPageView();
+
+    // ADD ADDITIONAL FACEBOOK CODE HERE
   };
-  
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
   function onLogin(response) {
   if (response.status == 'connected') {
     FB.api('/me?fields=first_name', function(data) {
@@ -209,9 +219,10 @@ FB.getLoginStatus(function(response) {
 
 
 <body>
-<h1 id="fb-welcome"></h1>
+
   <div class="wrapper">
   <form class="login">
+   <h1 id="fb-welcome"></h1>
     <p class="title">Log in</p>
     <input type="text" placeholder="Username" autofocus/>
     <i class="fa fa-user"></i>

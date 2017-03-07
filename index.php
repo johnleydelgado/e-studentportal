@@ -173,12 +173,14 @@ footer a, footer a:link {
 	</head>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
-   FB.init({
-    appId      : '1647204945583377',
-    status     : true,
-    xfbml      : true,
-    version    : 'v2.8' // or v2.6, v2.5, v2.4, v2.3
-  });
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1647204945583377',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
   
   function onLogin(response) {
   if (response.status == 'connected') {
